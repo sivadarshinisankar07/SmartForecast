@@ -1,0 +1,10 @@
+.inventory-search {
+  max-width: 260px;
+  height: 42px;
+}
+
+@media (max-width: 575.98px) {
+  .inventory-search {
+    max-width: 100%;
+  }
+}

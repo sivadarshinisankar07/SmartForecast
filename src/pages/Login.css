@@ -1,0 +1,431 @@
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  background: var(--color-bg);
+}
+
+/* ---------------------------------------------------------------- */
+/* Left branding panel                                              */
+/* ---------------------------------------------------------------- */
+
+.login-brand {
+  position: relative;
+  flex: 1.05;
+  background: var(--color-sidebar);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem 4.5rem;
+  overflow: hidden;
+}
+
+.login-brand::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 22px 22px;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.login-brand::after {
+  content: '';
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.35), transparent 70%);
+  top: -180px;
+  right: -180px;
+  pointer-events: none;
+}
+
+.login-brand-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 460px;
+}
+
+.login-brand-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 2.75rem;
+}
+
+.login-brand-mark .mark-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+}
+
+.login-brand-mark span {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.35rem;
+  letter-spacing: -0.01em;
+}
+
+.login-brand h1 {
+  font-size: 2.35rem;
+  line-height: 1.18;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.9rem;
+}
+
+.login-brand .tagline {
+  color: #93c5fd;
+  font-weight: 600;
+  font-size: 0.98rem;
+  margin-bottom: 1.15rem;
+  display: block;
+}
+
+.login-brand .description {
+  color: #cbd5e1;
+  font-size: 1.02rem;
+  line-height: 1.65;
+  margin-bottom: 3rem;
+}
+
+/* Flow visual: Historical Sales -> Forecast -> Inventory Decision */
+
+.flow-visual {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 1.4rem 1.25rem;
+  backdrop-filter: blur(6px);
+}
+
+.flow-visual-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #64748b;
+  font-weight: 600;
+  margin-bottom: 1.1rem;
+}
+
+.flow-steps {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.flow-step {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.6rem;
+}
+
+.flow-step-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  background: rgba(37, 99, 235, 0.16);
+  color: #60a5fa;
+  border: 1px solid rgba(96, 165, 250, 0.25);
+}
+
+.flow-step:nth-child(3) .flow-step-icon {
+  background: rgba(22, 163, 74, 0.16);
+  color: #4ade80;
+  border-color: rgba(74, 222, 128, 0.25);
+}
+
+.flow-step span {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  line-height: 1.3;
+}
+
+.flow-arrow {
+  color: #475569;
+  font-size: 1.1rem;
+  padding-bottom: 1.6rem;
+  flex: 0 0 auto;
+}
+
+.flow-visual .mini-chart {
+  margin-top: 1.25rem;
+  display: flex;
+  align-items: flex-end;
+  gap: 5px;
+  height: 46px;
+  padding-top: 0.5rem;
+  border-top: 1px dashed rgba(255, 255, 255, 0.12);
+}
+
+.mini-chart span {
+  flex: 1;
+  border-radius: 3px 3px 0 0;
+  background: linear-gradient(180deg, #3b82f6, #1d4ed8);
+  opacity: 0.85;
+}
+
+.mini-chart span.projected {
+  background: repeating-linear-gradient(
+    135deg,
+    rgba(148, 163, 184, 0.55),
+    rgba(148, 163, 184, 0.55) 3px,
+    transparent 3px,
+    transparent 6px
+  );
+}
+
+/* ---------------------------------------------------------------- */
+/* Right login panel                                                */
+/* ---------------------------------------------------------------- */
+
+.login-form-panel {
+  flex: 0.95;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2.5rem;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 400px;
+}
+
+.login-card.register-card {
+  max-width: 460px;
+}
+
+.field-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 1rem;
+}
+
+.field-grid > div {
+  margin-bottom: 1rem;
+}
+
+.field-grid.single {
+  grid-template-columns: 1fr;
+}
+
+.form-hint {
+  font-size: 0.78rem;
+  color: var(--color-text-secondary);
+  margin-top: 0.35rem;
+}
+
+.form-error-text {
+  font-size: 0.78rem;
+  color: var(--color-danger);
+  margin-top: 0.35rem;
+}
+
+.login-success {
+  background: var(--color-success-bg);
+  color: var(--color-success);
+  border-radius: var(--radius-sm);
+  padding: 0.65rem 0.9rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+@media (max-width: 575.98px) {
+  .field-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.login-card h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+}
+
+.login-card .subtitle {
+  color: var(--color-text-secondary);
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+}
+
+.role-toggle {
+  display: flex;
+  gap: 0.4rem;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 4px;
+  margin-bottom: 1.5rem;
+}
+
+.role-tab {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 0.6rem 0.5rem;
+  border-radius: 7px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.role-tab.active {
+  background: var(--color-card);
+  color: var(--color-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.form-label-custom {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 0.4rem;
+}
+
+.input-with-icon {
+  position: relative;
+}
+
+.input-with-icon i {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-text-secondary);
+  font-size: 1rem;
+}
+
+.input-with-icon .form-control {
+  padding-left: 2.6rem;
+}
+
+.form-control {
+  height: 46px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  font-size: 0.94rem;
+}
+
+.form-control:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.login-options-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1rem 0 1.4rem;
+}
+
+.form-check-label {
+  font-size: 0.87rem;
+  color: var(--color-text-secondary);
+}
+
+.forgot-link {
+  font-size: 0.87rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.forgot-link:hover {
+  text-decoration: underline;
+}
+
+.btn-login {
+  width: 100%;
+  height: 46px;
+  background: var(--color-primary);
+  border: none;
+  border-radius: var(--radius-sm);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.96rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: background 0.15s ease;
+}
+
+.btn-login:hover {
+  background: var(--color-primary-dark);
+}
+
+.login-alert {
+  background: var(--color-danger-bg);
+  color: var(--color-danger);
+  border-radius: var(--radius-sm);
+  padding: 0.65rem 0.9rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.login-register-row {
+  text-align: center;
+  margin-top: 1.6rem;
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+}
+
+.login-register-row a {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.login-register-row a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 991.98px) {
+  .login-page {
+    flex-direction: column;
+  }
+  .login-brand {
+    padding: 3rem 2rem;
+    flex: none;
+  }
+  .login-form-panel {
+    flex: none;
+    padding: 3rem 1.5rem 4rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .login-brand h1 {
+    font-size: 1.8rem;
+  }
+  .flow-step span {
+    font-size: 0.7rem;
+  }
+}
